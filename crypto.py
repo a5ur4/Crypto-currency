@@ -8,29 +8,30 @@ lista = []
 contacts = []
 now = datetime.now()
 
-bitcoinPage = requests.get('https://www.binance.com/pt-BR/price/bitcoin')
-ethPage = requests.get('https://www.binance.com/pt-BR/price/ethereum')
-solPage = requests.get('https://www.binance.com/pt-BR/price/solana')
+bitcoinPage = requests.get('https://www.google.com/finance/quote/BTC-BRL')
+ethPage = requests.get('https://www.google.com/finance/quote/ETH-BRL')
+dogePage = requests.get('https://www.google.com/finance/quote/DOGE-BRL')
+
 
 bitcoin = BeautifulSoup(bitcoinPage.content, 'html.parser')
 eth = BeautifulSoup(ethPage.content, 'html.parser')
-sol = BeautifulSoup(solPage.content, 'html.parser')
+doge = BeautifulSoup(dogePage.content, 'html.parser')
 
-valueBit = bitcoin.find("div", class_="css-1bwgsh3")
-valueEth = eth.find("div", class_="css-1bwgsh3")
-valueSol = sol.find("div", class_="css-1bwgsh3")
+valueBit = bitcoin.find("div", class_="YMlKec fxKbKc")
+valueEth = eth.find("div", class_="YMlKec fxKbKc")
+valueDoge = doge.find("div", class_="YMlKec fxKbKc")
 
-currentChangeBit = bitcoin.find("div", class_="css-4j2do9")
-currentChangeEth = eth.find("div", class_="css-4j2do9")
-currentChangeSol = sol.find("div", class_="css-4j2do9")
+currentChangeBit = bitcoin.find("div", class_="JwB6zf")
+currentChangeEth = eth.find("div", class_="JwB6zf")
+currentChangeDoge = doge.find("span", class_="JwB6zf")
 
 data = [
     ("\nBitcoin:", valueBit.text.strip()),
     ("24hP/V:", currentChangeBit.text.strip()),
     ("\nEthereum:", valueEth.text.strip()),
     ("24hP/V:", currentChangeEth.text.strip()),
-    ("\nSolana:", valueSol.text.strip()),
-    ("24hP/V:", currentChangeSol.text.strip())
+    ("\nDogecoin:", valueDoge.text.strip()),
+#    ("24hP/V:", currentChangeDoge.text.strip())
 ]
 
 dt_string = now.strftime("Date and Hour: " + "%d/%m/%Y %H:%M:%S\n")
@@ -46,10 +47,10 @@ with open('currency.txt', 'w') as file:
     for label, value in data:
         file.write(f"{label} {value}\n")
         
-with open('currency.txt', 'r') as file:
+"""with open('currency.txt', 'r') as file:
     message = ''.join(file.readlines())
 
 time.sleep(3)
 pywhatkit.sendwhatmsg_instantly(contacts[0], message)
-
+"""
 #made by: _a5ur4
