@@ -15,7 +15,7 @@ Este repositório contém dois scripts de exemplo para realizar web scraping de 
 
 1. Clone este repositório:
     ```sh
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/a5ur4/Crypto-currency.git
     cd seu-repositorio
     ```
 
@@ -60,7 +60,3 @@ Se desejar contribuir com este projeto, sinta-se à vontade para abrir uma issue
 ## Licença
 
 Este projeto está licenciado sob a MIT License.
-
----
-
-Para adaptar o README ao seu repositório específico, substitua `seu-usuario` e `seu-repositorio` pelos respectivos nomes do seu usuário e repositório no GitHub.
