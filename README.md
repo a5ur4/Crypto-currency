@@ -16,7 +16,7 @@ Este repositório contém dois scripts de exemplo para realizar web scraping de 
 1. Clone este repositório:
     ```sh
     git clone https://github.com/a5ur4/Crypto-currency.git
-    cd seu-repositorio
+    cd Crypto-currency
     ```
 
 2. Instale as dependências:
